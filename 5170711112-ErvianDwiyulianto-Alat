@@ -1,0 +1,165 @@
+# 5170711112-ErvianDwiyulianto-Alat
+//clas main
+package pbo13;
+
+import java.util.Scanner;
+
+public class Pbo13 {
+
+    static String Alat, wujud, warna, nama, merk, fungsi, jenisal, manfaat;
+    static int jumlah, jenis;
+    static double harga, p, l;
+    static Scanner sc = new Scanner(System.in);
+    static AlatMandi Mandi = new AlatMandi();
+    static AlatTulis Tulis = new AlatTulis();
+    static AlatKesehatan kest = new AlatKesehatan();
+
+    public static void main(String[] args) {
+        System.out.print("Jumlah Alat: ");
+        jumlah = sc.nextInt();
+        System.out.println("1.Alat Mandi");
+        System.out.println("2.Alat Tulis");
+        System.out.println("3.Alat Kesehatan");
+        System.out.print("Jenis Alat : ");
+        jenis = sc.nextInt();
+        switch (jenis) {
+            case 1:
+                for (int i = 1; i <= jumlah; i++) {
+                    System.out.print("\nnama  : ");
+                    nama = sc.next();
+                    Mandi.nama(nama);
+                    System.out.print("harga : ");
+                    harga = sc.nextDouble();
+                    Mandi.hargaBeli(harga);
+                    System.out.print("merk : ");
+                    merk = sc.next();
+                    Mandi.merk(merk);
+                    System.out.print("wujud : ");
+                    wujud = sc.next();
+                    Mandi.wujud(wujud);
+                    System.out.print("warna : ");
+                    warna = sc.next();
+                    Mandi.warna(warna);
+
+                    System.out.println("===============================================================================================");
+                    System.out.println("nama " + Mandi.nama);
+                    System.out.println("harga " + Mandi.hargaBeli);
+                    System.out.println("merk : " + Mandi.merk);
+                    System.out.println("wujud : " + Mandi.wujud);
+                    System.out.println("warna : " + Mandi.warna);
+                }
+                break;
+            case 2:
+                for (int i = 1; i <= jumlah; i++) {
+                    System.out.print("\nnama  : ");
+                    nama = sc.next();
+                    Tulis.nama(nama);
+                    System.out.print("harga : ");
+                    harga = sc.nextDouble();
+                    Tulis.hargaBeli(harga);
+                    System.out.print("merk : ");
+                    merk = sc.next();
+                    Tulis.merk(merk);
+                    System.out.print("fungsi : ");
+                    fungsi = sc.next();
+                    Tulis.fungsi(fungsi);
+                    System.out.print("dimensi p & l: ");
+                    p = sc.nextDouble();
+                    l = sc.nextDouble();
+                    Tulis.dimensi(p, l);
+                    
+                    System.out.println("===============================================================================================");
+                    System.out.println("nama " + Tulis.nama);
+                    System.out.println("harga " + Tulis.hargaBeli);
+                    System.out.println("merk : " + Tulis.merk);
+                    System.out.println("fungsi : " + Tulis.fungsi);
+                    System.out.println("dimensi : " + Tulis.p + Tulis.l);
+                }
+                break;
+            case 3:
+                for (int i = 1; i <= jumlah; i++) {
+                    System.out.print("\nnama  : ");
+                    nama = sc.next();
+                    kest.nama(nama);
+                    System.out.print("harga : ");
+                    harga = sc.nextDouble();
+                    kest.hargaBeli(harga);
+                    System.out.print("merk : ");
+                    merk = sc.next();
+                    kest.merk(merk);
+                    System.out.print("jenis alat : ");
+                    jenisal = sc.next();
+                    kest.merk(jenisal);
+                    System.out.print("manfaat : ");
+                    manfaat = sc.next();
+                    kest.merk(manfaat);
+                    
+                    System.out.println("===============================================================================================");
+                    System.out.println("nama " + kest.nama);
+                    System.out.println("harga " + kest.hargaBeli);
+                    System.out.println("merk : " + kest.merk);
+                    System.out.println("fungsi : " + kest.jenisal);
+                    System.out.println("dimensi : " + kest.manfaat);
+                }
+                break;
+        }
+    }
+}
+
+//clas alat
+package pbo13;
+
+public class Alat {
+    double hargaBeli;
+    String merk,nama;
+    void hargaBeli(double harga){
+        this.hargaBeli = harga;
+    }
+    void merk(String merk){
+        this.merk = merk;
+    }
+    void nama(String nama){
+        this.nama = nama;
+    }
+}
+
+//clas alatmandi
+package pbo13;
+
+public class AlatMandi extends Alat {
+    String warna,wujud;
+    public void wujud(String wujud){
+        this.wujud = wujud;
+    }
+    public void warna(String warna){
+        this.warna = warna;
+    }
+}
+
+//clas alattulis
+package pbo13;
+
+public class AlatTulis extends Alat{
+    String fungsi;
+    double p,l;
+    public void fungsi(String fungsi){
+        this.fungsi = fungsi;
+    }
+    public void dimensi(double p,double l){
+        this.p = p;
+        this.l = l;
+    }
+}
+
+//clas alatkesehatan
+package pbo13;
+
+public class AlatKesehatan extends Alat{
+    String jenisal,manfaat;
+    public void jenis(String jenisal){
+        this.jenisal = jenisal;
+    }
+    public void manfaat(String manfaat){
+        this.manfaat = manfaat;
+    }
+}
